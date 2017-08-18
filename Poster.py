@@ -3,7 +3,7 @@
 
 
 from email.mime.text import MIMEText
-from Crawler import crawler
+from Messenger import messenger
 import smtplib
 import json
 
@@ -12,12 +12,12 @@ class Poster():
         pass
 
     def get_text(self, city):
-        weather_list = crawler.get_wea(city=city)
-        if crawler.whether_notice(wea_list=weather_list):
+        weather_list = messenger.get_wea(city=city)
+        if messenger.whether_notice(wea_list=weather_list):
             # 有糟糕的天气
             print(city + '有糟糕的天气，需要提醒')
-            e_text = '今天或明天有糟糕的天气哦！\n' + '这是' + city + '接下来七天的天气：\n'
-            for i in range(7):
+            e_text = '今天或明天有糟糕的天气哦！\n' + '这是' + city + '接下来三天的天气：\n'
+            for i in range(3):
                 e_text += '{:<12}{:<12}{:<5}\n'.format(weather_list[i][0],
                                                        weather_list[i][1],
                                                        weather_list[i][2])
@@ -36,7 +36,7 @@ class Poster():
         return text_dict
 
     def send(self, to_list):
-        with open('./email_config.json', 'r') as f:
+        with open('./config.json', 'r') as f:
             from_email = json.load(f)['fromEmail']
             from_addr,password = from_email['email'],from_email['password']
 
