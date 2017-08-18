@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
 # 发送邮件
 
-import smtplib
+
 from email.mime.text import MIMEText
 from Crawler import crawler
-
+import smtplib
+import json
 
 class Poster():
     def __init__(self):
@@ -35,8 +36,9 @@ class Poster():
         return text_dict
 
     def send(self, to_list):
-        with open('./from_email.txt', 'r') as f:
-            from_addr, password = f.read().split('\n')
+        with open('./email_config.json', 'r') as f:
+            from_email = json.load(f)['fromEmail']
+            from_addr,password = from_email['email'],from_email['password']
 
         # 输入SMTP服务器地址:
         smtp_server = 'smtp.qq.com'

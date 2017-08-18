@@ -3,22 +3,14 @@
 from Poster import poster
 from time import sleep
 from datetime import datetime
+import json
 
 
 def main(test=False):
     print('<--天气提醒推送程序启动-->')
-    print('版本号v0.2.0')
-    with open('./email_list.txt', 'r') as f:
-        to_ads = f.read().split('\n')  # 收件人列表（字符串形式）
-    # 构造收件人列表（dict形式）
-    to_list = []
-    for to_ad in to_ads:
-        pairs = to_ad.split(',')
-        to_a = {}
-        for pair in pairs:
-            key, value = pair.split(':')
-            to_a[key.strip()] = value.strip()
-        to_list.append(to_a)
+    print('版本号v0.2.1')
+    with open('./email_config.json', 'r') as f:
+        to_list = json.load(f)['emailList']  # [{"email":"","city":""},{"email":"","city":""},{"email":"","city":""}]
 
     # 测试
     if test:

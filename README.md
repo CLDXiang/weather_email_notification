@@ -1,19 +1,30 @@
 自动获取天气信息并在有雨雪等糟糕天气时发邮件通知。
 
 ## 发件邮箱设置
-发件邮箱设置位于`"./from_email.txt"`，共两行，分别记录发件邮箱地址和密码。
+文件`"./email_config.json"`中的`"fromEmail"`为发件邮箱设置。
 ```angular2html
-name@server.com # 发件邮箱地址
-password # 发件邮箱密码
+{
+"email":"", # 发件邮箱地址
+"password":"" # 发件邮箱密码
+} 
 ```
 
-## 收件人列表构造
-收件人列表位于`"./email_list.txt"`中，每行记录一个收件人，以`email:***@***,city:,service:w`dict形式记录。
+## 收件人列表设置
+文件`"./email_config.json"`中的`"emailList"`为收件人列表设置，其中每个对象记录一个收件人。
 ```angular2html
-email:***@***,city:上海,service:w
-email:***@***,city:上海,service:w
-email:***@***,city:北京,service:w
+[
+{
+"email":"", # 收件邮箱地址
+"city":"", # 所在城市名（使用city_id中存在的城市名）
+"service":"" # 服务（未来的功能）
+},
+{
+"email":"",
+"city":"",
+"service":""
+},
 ...
+]
 ```
 可用城市与其对应ID在`"./city_id.txt"`中查询。
 

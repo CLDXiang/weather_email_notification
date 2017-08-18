@@ -1,0 +1,18 @@
+{
+  "emailList": [
+    {
+      "email": "",
+      "city": "",
+      "service": ""
+    },
+    {
+      "email": "",
+      "city": "",
+      "service": ""
+    }
+  ],
+  "fromEmail": {
+    "email": "",
+    "password": ""
+  }
+}
