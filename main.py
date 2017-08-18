@@ -8,7 +8,7 @@ import json
 
 def main(test=False):
     print('<--天气提醒推送程序启动-->')
-    print('版本号v0.3.0')
+    print('版本号v0.3.1')
     with open('./config.json', 'r') as f:
         to_list = json.load(f)['emailList']  # [{"email":"","city":""},{"email":"","city":""},{"email":"","city":""}]
 

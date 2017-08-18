@@ -24,3 +24,7 @@ v0.3.0
 -结构：由于天气信息获取方式的改变，以Messenger.py模块替换Crawler.py模块
 -增加糟糕天气关键字'暴'
 -文件：将email_config.json重命名为config.json，以后其将用于记录所有配置信息
+
+v0.3.1
+2017/8/18
+-删掉Messenger.py中无用的导入包

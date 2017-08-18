@@ -1,9 +1,6 @@
 # -*- coding:utf-8 -*-
 # 得到天气信息
 
-from lxml import etree
-from time import sleep
-import re
 import datetime
 import requests
 import json
